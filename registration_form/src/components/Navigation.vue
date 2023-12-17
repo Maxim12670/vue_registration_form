@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import AuthorizationForm from './AuthorizationForm.vue';
 import RegistrationForm from './RegistrationForm.vue';
 import { ref } from 'vue';
@@ -17,6 +17,33 @@ function onUpdateValue(event){
 
     console.log(isRegistration.value);
 }
+</script> -->
+
+<script>
+import RegistrationForm from './RegistrationForm.vue';
+import AuthorizationForm from './AuthorizationForm.vue';
+export default {
+    components: {
+        RegistrationForm,
+        AuthorizationForm
+    },
+    setup() {
+        let isRegistration = true
+    },
+    methods: {
+        onUpdateValue: function (event) {
+            var id = event.target.id;
+
+            if (id == 'logIn') {
+                this.isRegistration = false;
+            }
+            else {
+                this.isRegistration = true;
+            }
+            console.log(this.isRegistration);
+        }
+    }
+}
 </script>
 
 <template>
@@ -25,8 +52,8 @@ function onUpdateValue(event){
         <button class="navigation__btn" id="logIn" @click="onUpdateValue">Log In</button>
     </div>
 
-    <RegistrationForm v-if="isRegistration === true"/>
-    <AuthorizationForm v-else-if="isRegistration === false"/>
+    <AuthorizationForm v-if="!isRegistration"/>
+    <RegistrationForm v-else-if="isRegistration"/>
     
 </template>
 

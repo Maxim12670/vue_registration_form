@@ -15,5 +15,21 @@
     "@vitejs/plugin-vue": "^4.5.1",
     "sass": "^1.69.5",
     "vite": "^5.0.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/no-multiple-template-root": "off"
+    }
   }
 }

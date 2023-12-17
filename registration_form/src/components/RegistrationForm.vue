@@ -1,35 +1,52 @@
-<script setup>
-import { ref } from 'vue';
+<script>
+export default {
+    setup() {
+        const data = {
+            info: {
+                firstName: '',
+                lastName: '',
+                login: '',
+                email: '',
+                password: '',
+                photo: null
+            },
+            users: [
 
-let person = ref({
-    firstName: String,
-    lastName: String,
-    login: String,
-    emil: String,
-    password: String,
-    photo: null
-})
+            ],
+        };
+    },
+    methods: {
+        registration: function () {
+            this.users.push({
+                'firstName': this.info.firstName,
+                'lastName': this.info.lastName,
+                'login': this.info.login,
+                'email': this.info.email,
+                'password': this.info.password,
+            });
 
-const formElement = document.getElementById('registr');
+            this.info.firstName = '';
+            this.info.lastName = '';
+            this.info.login = '';
+            this.info.email = '';
+            this.info.password = '';
 
-function createAccount(event){
-    event.preventDefault();
-    const formData = new FormData(formElement);
-
+            console.log(data);
+        }
+    }
 }
-
 </script>
 
 <template>
     <div class="content">
         <form id="registr">
             <h2 class="content__title">Create Account</h2>
-            <input type="text" name="firstName" class="input" placeholder="First Name" required="required" />
-            <input type="text" name="lastName" class="input" placeholder="Last Name" required="required" />
-            <input type="text" name="login" class="input" placeholder="Login" required="required" />
-            <input type="email" name="email" class="input" placeholder="Email" required="required" />
-            <input type="password" name="password" class="input" placeholder="Password" />
-            <input type="file" name="photo" class="input input_file" />
+            <input type="text" v-mpdel="info.firstName" class="input" placeholder="First Name" required="required" />
+            <input type="text" v-mpdel="info.lastName" class="input" placeholder="Last Name" required="required" />
+            <input type="text" v-mpdel="info.login" class="input" placeholder="Login" required="required" />
+            <input type="email" v-mpdel="info.email" class="input" placeholder="Email" required="required" />
+            <input type="password" v-mpdel="info.password" class="input" placeholder="Password" />
+            <input type="file" v-mpdel="info.email" class="input input_file" />
             <button class="button" @click="createAccount">create</button>
         </form>
     </div>
