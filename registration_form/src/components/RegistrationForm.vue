@@ -33,11 +33,9 @@ export default{
     <div class="content">
         <form id="registr">
             <h2 class="content__title">Create Account</h2>
-            <input v-model="person.firstName" type="text" class="input" placeholder="First Name" />
-            <input v-model="person.lastName" type="text" class="input" placeholder="Last Name" />
-            <input v-model="person.login" type="text" class="input" placeholder="Login" />
-            <input v-model="person.email" type="email" class="input" placeholder="Email" />
-            <input v-model="person.password" type="password" class="input" placeholder="Password" />
+            <input type="text" class="input" placeholder="Login" />
+            <input type="email" class="input" placeholder="Email" />
+            <input type="password" class="input" placeholder="Password" />
             <button class="button" @click="regSubmit">create</button>
         </form>
     </div>

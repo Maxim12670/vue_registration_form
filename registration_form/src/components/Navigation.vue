@@ -24,7 +24,6 @@ import RegistrationForm from './RegistrationForm.vue';
 import AuthorizationForm from './AuthorizationForm.vue';
 
 export default{
-    name: 'Navigation',
     components: {
         RegistrationForm,
         AuthorizationForm
