@@ -1,37 +1,29 @@
 <script>
-export default {
-    setup() {
-        const data = {
-            info: {
+export default{
+    name: 'RegistrationForm',
+    data(){
+        return{
+            person: {
                 firstName: '',
                 lastName: '',
                 login: '',
                 email: '',
-                password: '',
-                photo: null
+                password: ''
             },
-            users: [
-
-            ],
-        };
+            users: []
+        }
     },
     methods: {
-        registration: function () {
+        regSubmit(){
             this.users.push({
-                'firstName': this.info.firstName,
-                'lastName': this.info.lastName,
-                'login': this.info.login,
-                'email': this.info.email,
-                'password': this.info.password,
+                'firstName': this.firstName,
+                'lastName': this.lastName,
+                'login': this.login,
+                'email': this.email,
+                'password': this.password
             });
 
-            this.info.firstName = '';
-            this.info.lastName = '';
-            this.info.login = '';
-            this.info.email = '';
-            this.info.password = '';
-
-            console.log(data);
+            console.log(this.users);
         }
     }
 }
@@ -41,13 +33,12 @@ export default {
     <div class="content">
         <form id="registr">
             <h2 class="content__title">Create Account</h2>
-            <input type="text" v-mpdel="info.firstName" class="input" placeholder="First Name" required="required" />
-            <input type="text" v-mpdel="info.lastName" class="input" placeholder="Last Name" required="required" />
-            <input type="text" v-mpdel="info.login" class="input" placeholder="Login" required="required" />
-            <input type="email" v-mpdel="info.email" class="input" placeholder="Email" required="required" />
-            <input type="password" v-mpdel="info.password" class="input" placeholder="Password" />
-            <input type="file" v-mpdel="info.email" class="input input_file" />
-            <button class="button" @click="createAccount">create</button>
+            <input v-model="person.firstName" type="text" class="input" placeholder="First Name" />
+            <input v-model="person.lastName" type="text" class="input" placeholder="Last Name" />
+            <input v-model="person.login" type="text" class="input" placeholder="Login" />
+            <input v-model="person.email" type="email" class="input" placeholder="Email" />
+            <input v-model="person.password" type="password" class="input" placeholder="Password" />
+            <button class="button" @click="regSubmit">create</button>
         </form>
     </div>
 </template>

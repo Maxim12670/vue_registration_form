@@ -1,4 +1,10 @@
 <script>
+export default{
+    name: 'AuthorizationForm',
+    data(){
+        return{}
+    }
+}
 </script>
 
 <template>
